@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天龙八部</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            width: auto;
+            margin:  auto;
+            padding: 0;
+        }
+        .header{
+            width: 850px;
+            margin: auto;
+            padding: 20px 200px;
+            background-color:lightblue;
+        }
+        .header p{
+            color: grey;
+        }
+        .header-img{
+            display: flex;
+
+        }
+        .header-img img{
+            flex-shrink: 0;
+            width: 265px;
+            height: 200px;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        .content{
+            width: 850px;
+            background-color:floralwhite;
+            margin: auto;
+            padding: 0 200px 10px 200px;
+        }
+        .introduce{
+            background-color: white;
+            height: 400px;
+            margin:  0;
+            padding:0;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+            display: flex;
+        }
+        .introduce-left{
+            margin: 0;
+            padding: 20px 10px;
+            width: 580px;
+            
+        }
+        .introduce-right{
+            width: 210px;
+            height: 360px;
+            float: right;
+            margin: 0;
+            padding: 0;
+            padding: 20px 10px;
+        }
+        .introduce-right img{
+            width: 210px;
+            height: 360px;
+            float: right;
+            border-radius: 8px;
+            margin: 0;
+            padding: 0;
+        }
+        .introduce-left p{
+            margin: 10px 0px;
+            padding: 0;
+            font-family:Arial,Helvetica,sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .introduce-left p.data{
+            margin-top: 0;
+            white-space: pre;
+            text-align: right;
+        }
+        .introduce-left p.data span{
+            color: blue;
+        }
+        .introduce-left p.main{
+            text-indent: 20px;
+            white-space:normal; 
+            width:580px; 
+        }
+        .introduce-table{
+            margin-top: 20px;
+        }
+        .introduce-left table{
+            width: 600px;
+        }
+        .introduce-one{
+            font-weight: 600;
+        }
+        .introduce-two{
+            color: gray;
+        }
+        .Basic-information{
+            background-color: white;
+            height: 250px;
+            margin: 20px 0;
+            padding:0;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+        }
+        .information-header{
+            margin: 0;
+            padding: 0 30px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        .Basic-information h2{
+            margin: 0;
+            padding: 20px 0 20px 20px;
+        }
+        .rectangle{
+            width: 10px;
+            height: 25px; 
+            background-color: purple;
+        }
+        .Basic-information hr{
+            flex-grow: 1;
+            border: 1px;
+            border-style: none none dotted none;
+        }
+        .Basic-information table{
+            width: 800px;
+            height: 150px;
+            margin: 0 0 0 20px;
+        }
+        .Basic-information table tr td{
+            border: 1px;
+            border-style: none none dotted none;
+        }
+        .basic-one{
+            color: grey;
+            
+        }
+        .performer{
+            background-color: white;
+            height: 650px;
+            margin-top: 20px;
+            padding:0;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+        }
+        .performer-header{
+            margin: 0;
+            padding: 0 30px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        .performer h2{
+            margin: 0;
+            padding: 20px 0 20px 20px;
+        }
+        .performer hr{
+            flex-grow: 1;
+            border: 1px;
+            border-style: none none dotted none;
+        }
+        .performer ul li{
+            list-style-type: none;
+            height: 150px;
+            background: #FFF;
+            overflow: hidden;
+            margin: 20px 30px 20px 0;
+        }
+        .performer ul li img{
+            margin-right: 20px;
+            padding: 0;
+            width: 120px;
+            height: 150px;
+            float: left;
+        }
+        .performer-name{
+            margin:0 0 16px 0;
+            padding: auto;
+            font-size: 18px;
+            color: blue;
+        }
+        .performer ul li span{
+            margin: 20px 10px 0 0;
+        }
+        .performer-one{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>天龙八部</h1>
+            
+            <p>1997年李添胜指导的电视剧</p>
+            <div class="header-img">
+                <img src="../img/header1.jpg" alt="天龙八部图片1">
+                <img src="../img/header2.jpg" alt="天龙八部图片2">
+                <img src="../img/header3.jpg" alt="天龙八部图片3">
+            </div>
+        </div>
+        <div class="content">
+            <div class="introduce">
+                <div class="introduce-left">
+                    <p class="data"><span>收藏</span> 1241    <span>点赞</span> 31231    <span>收藏</span> 41413</p>
+                    <p class="main">《天龙八部》是由李添胜执导，黄日华、陈浩民、樊少皇、李若彤、刘锦玲等主演的古装豪情电视剧。</p>
+                    <p class="main">该剧于1997年3月2日在CCTV8黄金档首播，并陆续在中国个地方电视台重播。</p>
+                    <p class="main">该剧在香港首播，并陆续在中国个地方电视台重播。</p>
+                    <p class="main">该剧讲述的是面对乱世，萧峰、虚竹、段誉三人开始了非同寻常的江湖生涯，遇见了诸如天山童姥、慕容复、大轮明王、丁春秋、游坦之、四大恶人等各色高手，生死情仇、爱恨别离、民族大义在因缘际会中施展等故事。</p>
+                    <p class="main">本剧以宋哲宗时代为背景，通过宋、辽、大理、西夏、吐蕃等王国之间的武林恩怨和民族矛盾，从哲学的高度对人生和社会进行审视和描写。</p>
+                    <div class="introduce-table">
+                        <table>
+                            <tr>
+                                <td class="introduce-one">类型</td>
+                                <td class="introduce-two">章回体，古装，情景，历史</td>
+                                <td class="introduce-one">导演</td>
+                                <td class="introduce-two"><a href="#">李添胜</a></td>
+                            </tr>
+                            <tr>
+                                <td class="introduce-one">首播时间</td>
+                                <td class="introduce-two">1997年3月2日</td>
+                                <td class="introduce-one">中文名</td>
+                                <td class="introduce-two">天龙八部</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="introduce-right"><img src="../img/introduce.jpg" alt="介绍图片"></div>
+            </div>
+            <div class="Basic-information">
+                <div class="information-header">
+                    <div class="rectangle"></div>
+                    <h2>基本信息</h2><hr>
+                </div>
+                
+                <table>
+                    <tr>
+                        <td class="basic-one">中文名</td>
+                        <td class="basic-two">天龙八部</td>
+                        <td class="basic-one">主演</td>
+                        <td class="basic-two">黄日华、陈浩民、樊少皇、李若彤、刘锦玲</td>
+                    </tr>
+                    <tr>
+                        <td class="basic-one">外文名</td>
+                        <td class="basic-two">Tianlong Ba Bu</td>
+                        <td class="basic-one">集数</td>
+                        <td class="basic-two">45集</td>
+                    </tr>
+                    <tr>
+                        <td class="basic-one">出品公司</td>
+                        <td class="basic-two">香港无线电视台</td>
+                        <td class="basic-one">每集长度</td>
+                        <td class="basic-two">42分钟</td>
+                    </tr>
+                    <tr>
+                        <td class="basic-one">导演</td>
+                        <td class="basic-two">李添胜</td>
+                        <td class="basic-one">编剧</td>
+                        <td class="basic-two">金庸，梁咏梅</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="performer">
+                <div class="performer-header">
+                    <div class="rectangle"></div>
+                    <h2>演员介绍</h2><hr>
+                </div>
+                <div class="performer-information">
+                    <ul>
+                        <li>
+                            <img src="../img/qiaofeng.jpg" alt="乔峰">
+                            <p class="performer-name">乔峰</p>
+                            <span class="performer-one">演员</span>
+                            <span class="performer-two">黄日华</span>
+                            <p>丐帮帮主。心系苍生并忠于国家和民族的悲剧英雄。大气磅礴勇卢刚健，是为阔；快刀斩麻平息叛乱，是为捷；义释丐帮四大长老，是为良；单刀赴会力战群雄，是为夫；错杀阿朱悲恸不已，是为真；为罢兵乱蹈死不顾，是为正。</p>
+                            
+                        </li>
+                        <hr style="margin-right: 30px;">
+                        <li>
+                            <img src="../img/xuzhu.jpg" alt="虚竹">
+                            <p class="performer-name">虚竹</p>
+                            <span class="performer-one">演员</span>
+                            <span class="performer-two">樊少皇</span>
+                            <p>灵鷲宫主。本是天真、憨直、温驯的少林小和尚。天性蠢笨，却宗开了谜一般的珍珑棋局；相貌丑陋，却娶到了清秀绝伦的西夏公主；信仰坚定，却破了佛家不可饶恕的三大法戒。虚竹内空，却能包容万物，也能摒弃万物，这就是一种境界。</p>
+                            
+                        </li>
+                        <hr style="margin-right: 30px;">
+                        <li>
+                            <img src="../img/duanyu.jpg" alt="段誉">
+                            <p class="performer-name">段誉</p>
+                            <span class="performer-one">演员</span>
+                            <span class="performer-two">陈浩民</span>
+                            <p>大理王子。纯真善银，爱心泛滥的痴儿。剑湖宫外，欲止干戈，敢以和平之理规劝凶徒，即痴于理；初见语嫣，奉为神女，不理小人的冷嘲热谨紧随护持，即痴为情；少林寺中，万千强敌环伺，萧峰又被污为万恶之首，敢与大哥共饮烈酒，即痴为义。</p>
+                            
+                        </li>
+                       
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
