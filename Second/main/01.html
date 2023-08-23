@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小张奶茶</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            width: auto;
+            margin:  auto;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+        .header{
+            width: 800px;
+            margin: auto;
+            padding: 20px 0;
+            background-color:rgb(63, 62, 62);
+        }
+        .header-img{
+            display: flex;
+            padding: 0 50px;
+        }
+        .header-img img{
+            width: 150px;
+            height: 200px;
+            border-radius: 8px;
+            margin: auto;
+        }
+        .header-img img:hover{
+            transform: rotate(-20deg);
+        }
+
+        .content{
+            margin: 0;
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        form div{
+            margin: auto;
+            display: flex;
+            padding: 20px 0;
+            height: auto;
+            width: 400px;
+            align-items: flex-start;
+        }
+
+        form div label{
+            flex:0 0 140px;
+            text-align: right;
+        }
+        .submit{
+            border: 0;
+            background-color: blue;
+            color: white;
+            margin:auto 20px auto 100px;
+            border-radius: 8px;
+            width: 80px;
+            height: 40px;
+        }
+        .submit:hover{
+            background-color: red;
+        }
+        .reset{
+            border: 0;
+            margin:auto 100px auto 20px;
+            border-radius: 5px;
+            width: 80px;
+            height: 40px;
+        }
+        .reset:hover{
+            background-color: red;
+        }
+        .top{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            border-radius: 8px;
+        }
+        .top:hover{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+                <div class="header-img">
+                    <img src="../img/冰镇草莓.jpeg" alt="冰镇草莓">
+                    <img src="../img/提茉奶绿.jpeg" alt="提茉奶绿">
+                    <img src="../img/烧仙草.jpeg" alt="烧仙草">
+                    <img src="../img/红豆芋圆.jpeg" alt="红豆芋圆">
+                </div>
+        </div>
+        <div class="content">
+            <form onsubmit="return showOrderInfo()">
+                <div>
+                    <label for="taste-one">奶茶口味：</label>
+                    <input id="taste-one" type="radio" value="冰镇草莓" name="taste" required/>冰镇草莓
+                    <input id="taste-two" type="radio" value="提茉奶绿" name="taste" required/>提茉奶绿
+                    <input id="taste-three" type="radio" value="烧仙草" name="taste" required/>烧仙草
+                </div>
+                <div>
+                    <label for="num">几杯：</label>
+                    <input id="num" type="text" required/>
+                </div>
+                <div>
+                    <label for="huge">杯型：</label>
+                    <input id="huge" type="radio" value="超大杯" name="cap-shaped" required/>超大杯
+                    <input id="big" type="radio" value="大杯" name="cap-shaped" required/>大杯
+                    <input id="middle" type="radio" value="中杯" name="cap-shaped" required/>中杯
+                </div>
+                <div>
+                    <label for="sweetness">甜度：</label>
+                    <select name="甜度" id="sweetness" required>
+                        <option value="全糖">全糖</option>
+                        <option value="半糖">半糖</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="free-one">免费小料：</label>
+                    <input id="free-one" type="checkbox" value="波霸" title="波霸" name="free"/>波霸
+                    <input id="free-two" type="checkbox" value="椰果" title="椰果"  name="free"/>椰果
+                    <input id="free-three" type="checkbox" value="西米露" title="西米露"  name="free"/>西米露
+                    <input id="free-four" type="checkbox" value="茶冻" title="茶冻" name="free"/>茶冻
+                    <input id="free-five" type="checkbox" value="红豆" title="红豆" name="free"/>红豆
+                    <input id="free-six" type="checkbox" value="仙草" title="仙草" name="free"/>仙草
+                </div>
+                <div>
+                    <label for="charge-one">加价小料：</label>
+                    <input id="charge-one" type="checkbox" value="冰激凌" name="charge"/>冰激凌(4￥) 
+                    <input id="charge-two" type="checkbox" value="布丁" name="charge"/>布丁(￥3) 
+                    <input id="charge-three" type="checkbox" value="奶霜" name="charge"/>奶霜(￥2) 
+                </div>
+                <div>
+                    <label for="ice-yes">是否加冰：</label>
+                    <input id="ice-yes" type="radio" value="是" name="ice" required/>是
+                    <input id="ice-no" type="radio" value="否" name="ice" required/>否
+                </div>
+                <div>
+                    <label for="tea-yes">是否去茶底：</label>
+                    <input id="tea-yes" type="radio" value="是" name="tea" required/>是
+                    <input id="tea-no" type="radio" value="否" name="tea" required/>否
+                </div>
+                <div>
+                    <label for="address">你的地址：</label>
+                    <textarea name="" id="address" cols="30" rows="10" required></textarea>
+                </div>
+                <div>
+                    <label for="phone">你的手机号：</label>
+                    <input id="phone" type="textarea" required/>
+                </div>
+                <div>
+                    <label for="date">期待送达时间：</label>
+                    <input id="date" type="datetime-local" value="时间" required/>
+                </div>
+                <div> 
+                    <label for="notes">备注：</label>
+                    <textarea name="" id="notes" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <label for="payment-one">支付方式：</label> 
+                    <input id="payment-one" type="radio" value="微信支付" name="payment" required/>微信支付
+                    <input id="payment-two" type="radio" value="支付宝" name="payment" required/>支付宝
+                </div>
+                <div>
+                    <input class="submit" type="submit" value="提交"/>
+                    <input class="reset" type="reset" value="重置" />
+                </div>
+                <button class="top" id="topBtn" onclick="topFunction()">回到顶部</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function showOrderInfo() {
+        var taste = "";
+        var tasteRadios = document.getElementsByName("taste");
+        for (var i = 0; i < tasteRadios.length; i++) {
+            if (tasteRadios[i].checked) {
+                taste = tasteRadios[i].value;
+                break;
+            }
+        }
+
+        var num = document.getElementById("num").value;
+        
+        var capShaped = "";
+        var capShapedRadios = document.getElementsByName("cap-shaped");
+        for(var i = 0; i < capShapedRadios.length; i++) {
+            if(capShapedRadios[i].checked) {
+                capShaped = capShapedRadios[i].value;
+                break;
+            }
+        }
+
+        var sweetness = document.getElementById("sweetness").value;
+
+        var free = [];
+        var freeCheckboxes = document.getElementsByName("free");
+        for(var i = 0; i < freeCheckboxes.length; i++) {
+            if(freeCheckboxes[i].checked) {
+                free.push(freeCheckboxes[i].value);
+            }
+        }
+
+        var charge = [];
+        var chargeCheckboxes = document.getElementsByName("charge");
+        for(var i = 0; i < chargeCheckboxes.length; i++) {
+            if(chargeCheckboxes[i].checked) {
+                charge.push(chargeCheckboxes[i].value);
+            }
+        }
+
+        var ice = "";
+        var iceRadios = document.getElementsByName("ice");
+        for (var i = 0; i < iceRadios.length; i++) {
+            if (iceRadios[i].checked) {
+                ice = iceRadios[i].value;
+                break;
+            }
+        }
+
+
+        var tea = "";
+        var teaRadios = document.getElementsByName("tea");
+        for (var i = 0; i < teaRadios.length; i++) {
+            if (teaRadios[i].checked) {
+                tea = teaRadios[i].value;
+                break;
+            }
+        }
+
+        var address = document.getElementById("address").value;
+        var phone = document.getElementById("phone").value;
+        var datetime = document.getElementById("date").value;
+        var notes = document.getElementById("notes").value;
+
+        var payment = "";
+        var paymentRadios = document.getElementsByName("payment");
+        for (var i = 0; i < paymentRadios.length; i++) {
+            if (paymentRadios[i].checked) {
+                payment = paymentRadios[i].value;
+                break;
+            }
+        }
+        alert("【您的订单已生成】:\n"
+                    +"-----------------------\n"
+                    + "奶茶口味: " + taste + "\n"
+                    + "几杯: " + num + "\n"
+                    + "杯型: " + capShaped + "\n"
+                    + "甜度: " + sweetness + "\n"
+                    + "免费小料: " + free.join(", ") + "\n"
+                    + "加价小料: " + charge.join(", ") + "\n"
+                    + "是否加冰: " + ice + "\n"
+                    + "是否去茶底: " + tea + "\n"
+                    + "地址: " + address + "\n"
+                    + "手机号: " + phone + "\n"
+                    + "期待送达时间: " + datetime + "\n"
+                    + "备注: " + notes + "\n"
+                    + "支付方式: " + payment);
+        
+    }
+    window.onscroll = function() {scrollFunction()};
+ 
+    function scrollFunction() {console.log(121);
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("topBtn").style.display = "block";
+        } else {
+            document.getElementById("topBtn").style.display = "none";
+        }
+    }
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</html>
