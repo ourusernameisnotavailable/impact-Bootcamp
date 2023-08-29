@@ -9,11 +9,6 @@
             margin: 0;
         }
         .container{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
             width: auto;
             margin:  auto;
             padding: 0;
@@ -22,20 +17,15 @@
         .header{
             width: 800px;
             margin: auto;
-            margin-bottom: 20px;
             padding: 20px 0;
             background-color:rgb(63, 62, 62);
         }
         .header-img{
-            padding: 0 50px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
+            padding: 0 50px;
         }
         .header-img img{
-            width: 150px;
+            width: auto;
             height: 200px;
             border-radius: 8px;
             margin: auto;
@@ -45,11 +35,10 @@
         }
 
         .content{
+            width: auto;
             margin: 0;
             padding-top: 30px;
             text-align: center;
-            width: 100%;
-            max-width: 500px;
         }
 
         form div{
@@ -94,17 +83,65 @@
             bottom: 0;
             right: 0;
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
         }
         .top:hover{
             background-color: grey;
         }
-        @media screen and (max-width: 600px) {
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
             .header-img {
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .header-img img {
+                width: 40%;
+                max-width: 150px;
+                margin: 5px;
+            }
+
+            .content {
+                padding: 5px;
+                font-size: 14px;
+            }
+            
+            .form-field {
+                margin-bottom: 10px;
+            }
+
+            .form-field label {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 12px;
+            }
+
+            .form-field input,
+            .form-field select {
+                width: 100%;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .form-field textarea {
+                width: 100%;
+                height: 80px;
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .form-submit-btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
             }
         }
     </style>
