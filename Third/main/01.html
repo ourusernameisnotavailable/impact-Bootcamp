@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石头剪刀布</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: cyan;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header{
+            font-size: 30px;
+            visibility: hidden;
+        }
+        .content{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 100px;
+            align-items: center;
+            width: 60%;
+        }
+        .computer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .player{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .action{
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+        }
+        .action span{
+            font-size: 30px;
+            margin: auto;
+        }
+        p.name{
+            margin: 0;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        p.result{
+            margin: 0;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+        .this-round-result{
+            margin-top: 30px;
+            font-size:12px ;
+            visibility: hidden;
+        }
+        .total-round-result{
+            font-size: 12px;
+            visibility: hidden;
+        }
+        .satrt-round{
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        .start-round button{
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 6px;
+            background-color: black;
+            color: white;
+        }
+        #select-action{
+            padding: 0 30px;
+            width: 200px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+        }
+        .row{
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .row button{
+            border: 0;
+            border-radius: 4px;
+            background-color: blue;
+            color: white;
+        }
+        .player-action{
+            width: 80px;
+            height: 100px;
+            margin: auto;
+            transform: rotate(-30deg);
+        }
+        .computer-action{
+            width: 80px;
+            height: 100px;
+            margin: auto;
+            transform: rotate(30deg);
+        }
+        .end-game{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p id="round">第一回合（共三回合）</p>
+        </div>
+        <div class="content">
+            <div class="computer">
+                <div class="action">
+                    <span id="computerAction">?</span>
+                </div>
+                <p class="name">机器人</p>
+                <p class="result">胜: 0 | 负: 0</p>
+            </div>
+            <div class="player">
+                <div class="action">
+                    <span id="playerAction">?</span>
+                </div>
+                <p class="name">玩家</p>
+                <p class="result">胜: 0 | 负: 0</p>
+            </div>
+        </div>
+        <div class="this-round-result">本回合</div>
+        <div class="total-round-result">本回合</div>
+        <div class="start-round">
+            <button id="startGame" onclick="startGame()">开始游戏</button>
+        </div>
+    </div>
+    <dialog id="select-action">
+        <form id="select-form" onsubmit="return false">
+            <p class="row">
+                <label for="action">
+                    请选择要出的手势：
+                </label>
+                <select name="action" id="action-select">
+                    <option value="rock">石头</option>
+                    <option value="scissor">剪刀</option>
+                    <option value="paper">布</option>
+                </select>
+            </p>
+            <p class="row">
+                <button class="btn" type="submit" id="submit-select" onclick="startNextGame()">确定</button>
+            </p>
+        </form>
+    </dialog>
+</body>
+<script>
+    function startGame(){
+        const diaLog = document.getElementById("select-action");
+        diaLog.open = 'true';
+        const st1 = document.createElement("button");
+        st1.setAttribute("id", "startGame");
+        st1.setAttribute("onclick", "startGame()");
+        const st1_content = document.createTextNode("开始下一个回合");
+        st1.appendChild(st1_content);
+        const st2 = document.getElementById("startGame");
+        const parentDiv = st2.parentNode;
+        parentDiv.replaceChild(st1, st2);
+    }
+    function startNextGame(){
+        const diaLog = document.getElementById("select-action");
+        diaLog.close();
+        const action = document.getElementById("action-select").value;
+        if(action == "rock"){
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/rock.jpg");
+            act1.setAttribute("id", "playerAction");
+            act1.setAttribute("class", "player-action");
+            act1.setAttribute("name", "rock");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("playerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }else if(action == "scissor"){
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/scissor.jpg");
+            act1.setAttribute("id", "playerAction");
+            act1.setAttribute("class", "player-action");
+            act1.setAttribute("name", "scissor");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("playerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }else{
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/paper.jpg");
+            act1.setAttribute("id", "playerAction");
+            act1.setAttribute("class", "player-action");
+            act1.setAttribute("name", "paper");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("playerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }
+
+
+
+
+        const computerAction = Math.random()*3;
+        if(computerAction<1){
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/rock.jpg");
+            act1.setAttribute("id", "computerAction");
+            act1.setAttribute("class", "computer-action");
+            act1.setAttribute("name", "rock");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("computerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }else if(computerAction<2){
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/scissor.jpg");
+            act1.setAttribute("id", "computerAction");
+            act1.setAttribute("class", "computer-action");
+            act1.setAttribute("name", "scissor");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("computerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }else{
+            const act1 = document.createElement("img");
+            act1.setAttribute("src", "./img/paper.jpg");
+            act1.setAttribute("id", "computerAction");
+            act1.setAttribute("class", "computer-action");
+            act1.setAttribute("name", "paper");
+            document.body.appendChild(act1);
+            const act2 = document.getElementById("computerAction");
+            const parentDiv = act2.parentNode;
+            parentDiv.replaceChild(act1, act2);
+        }
+
+
+        const playerChoice = document.getElementById("playerAction").getAttribute("name");
+        const computerChoice = document.getElementById("computerAction").getAttribute("name");
+        
+        resultFunction(playerChoice,computerChoice);
+    }
+    
+    let playerWins = 0;
+    let computerWins = 0;
+    let rounds = 0;
+    const thisRoundResult = document.querySelector(".this-round-result");
+    const totalRoundResult = document.querySelector(".total-round-result");
+    
+    function resultFunction(playerChoice,computerChoice){
+        const startGames = document.getElementById("startGame");
+        
+        if (
+            (playerChoice === "rock" && computerChoice === "scissor") ||
+            (playerChoice === "scissor" && computerChoice === "paper") ||
+            (playerChoice === "paper" && computerChoice === "rock")
+        ) {
+            thisRoundResult.style.visibility = 'visible'
+            thisRoundResult.innerHTML = `本回合你取得胜利！`
+            playerWins++; 
+        } else if (playerChoice !== computerChoice) {
+            thisRoundResult.style.visibility = 'visible'
+            thisRoundResult.innerHTML = `本回合机器人取得胜利！`
+            computerWins++;
+        }else{
+            thisRoundResult.style.visibility = 'visible'
+            thisRoundResult.innerHTML = `本回合是平局！`
+        }
+        const playerResult = document.querySelector(".player .result");
+        const computerResult = document.querySelector(".computer .result");
+        playerResult.innerText = `胜: ${playerWins} | 负: ${computerWins}`;
+        computerResult.innerText = `胜: ${computerWins} | 负: ${playerWins}`;
+
+        const round = document.getElementById("round");
+        round.style.visibility = 'visible';
+
+        
+        rounds++;
+
+        if(rounds === 1){
+            round.innerText = `第一回合（共三回合）`;
+        }else if(rounds === 2){
+            round.innerText = `第二回合（共三回合）`;
+        }else{
+            round.innerText = `第三回合（共三回合）`;
+        }
+        if(rounds === 3 && playerWins > computerWins){
+            const endGame = document.createElement("p");
+            endGame.setAttribute("id", "endGame");
+            endGame.setAttribute("class", "end-game");
+            const endGame_content = document.createTextNode("恭喜你取得胜利");
+            endGame.appendChild(endGame_content);
+            const parentDiv = totalRoundResult.parentNode;
+            parentDiv.replaceChild(endGame, totalRoundResult);
+            startGames.style.display = 'none';
+        }else if(rounds === 3 && playerWins === computerWins){
+            const endGame = document.createElement("p");
+            endGame.setAttribute("id", "endGame");
+            endGame.setAttribute("class", "end-game");
+            const endGame_content = document.createTextNode("太厉害了，平局");
+            endGame.appendChild(endGame_content);
+            const parentDiv = totalRoundResult.parentNode;
+            parentDiv.replaceChild(endGame, totalRoundResult);
+            startGames.style.display = 'none';
+        }else if(rounds === 3 && playerWins < computerWins){
+            const endGame = document.createElement("p");
+            endGame.setAttribute("id", "endGame");
+            endGame.setAttribute("class", "end-game");
+            const endGame_content = document.createTextNode("恭喜机器人取得胜利");
+            endGame.appendChild(endGame_content);
+            const parentDiv = totalRoundResult.parentNode;
+            parentDiv.replaceChild(endGame, totalRoundResult);
+            startGames.style.display = 'none';
+        }
+    }
+    
+</script>
+</html>
