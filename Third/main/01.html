@@ -70,6 +70,7 @@
             margin-top: 30px;
         }
         .start-round button{
+            margin-top: 30px;
             padding: 5px 10px;
             font-size: 12px;
             border-radius: 6px;
@@ -116,7 +117,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <p id="round">第一回合（共三回合）</p>
+            <p id="round"></p>
         </div>
         <div class="content">
             <div class="computer">
@@ -134,8 +135,8 @@
                 <p class="result">胜: 0 | 负: 0</p>
             </div>
         </div>
-        <div class="this-round-result">本回合</div>
-        <div class="total-round-result">本回合</div>
+        <div class="this-round-result"></div>
+        <div class="total-round-result"></div>
         <div class="start-round">
             <button id="startGame" onclick="startGame()">开始游戏</button>
         </div>
@@ -153,7 +154,7 @@
                 </select>
             </p>
             <p class="row">
-                <button class="btn" type="submit" id="submit-select" onclick="startNextGame()">确定</button>
+                <button class="btn" type="submit" id="submit-select" onclick="gameProcess()">确定</button>
             </p>
         </form>
     </dialog>
@@ -171,77 +172,53 @@
         const parentDiv = st2.parentNode;
         parentDiv.replaceChild(st1, st2);
     }
-    function startNextGame(){
+    function gameProcess(){
         const diaLog = document.getElementById("select-action");
         diaLog.close();
         const action = document.getElementById("action-select").value;
-        if(action == "rock"){
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/rock.jpg");
-            act1.setAttribute("id", "playerAction");
-            act1.setAttribute("class", "player-action");
+        const act1 = document.createElement("img");
+        act1.setAttribute("id", "playerAction");
+        act1.setAttribute("class", "player-action");
+        
+        if(action === "rock"){
+            act1.setAttribute("src", "../img/rock.png");   
             act1.setAttribute("name", "rock");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("playerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
-        }else if(action == "scissor"){
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/scissor.jpg");
-            act1.setAttribute("id", "playerAction");
-            act1.setAttribute("class", "player-action");
+        }else if(action === "scissor"){
+            act1.setAttribute("src", "../img/scissor.png");
             act1.setAttribute("name", "scissor");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("playerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
         }else{
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/paper.jpg");
-            act1.setAttribute("id", "playerAction");
-            act1.setAttribute("class", "player-action");
+           
+            act1.setAttribute("src", "../img/paper.png");
+            
             act1.setAttribute("name", "paper");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("playerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
+            
         }
-
+        document.body.appendChild(act1);
+        const act2 = document.getElementById("playerAction");
+        const parentDiv1 = act2.parentNode;
+        parentDiv1.replaceChild(act1, act2);
 
 
 
         const computerAction = Math.random()*3;
+        const act3 = document.createElement("img");
+            
+        act3.setAttribute("id", "computerAction");
+        act3.setAttribute("class", "computer-action");
         if(computerAction<1){
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/rock.jpg");
-            act1.setAttribute("id", "computerAction");
-            act1.setAttribute("class", "computer-action");
-            act1.setAttribute("name", "rock");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("computerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
+            act3.setAttribute("name", "rock");
+            act3.setAttribute("src", "../img/rock.png");
         }else if(computerAction<2){
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/scissor.jpg");
-            act1.setAttribute("id", "computerAction");
-            act1.setAttribute("class", "computer-action");
-            act1.setAttribute("name", "scissor");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("computerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
+            act3.setAttribute("name", "scissor");
+            act3.setAttribute("src", "../img/scissor.png");
         }else{
-            const act1 = document.createElement("img");
-            act1.setAttribute("src", "./img/paper.jpg");
-            act1.setAttribute("id", "computerAction");
-            act1.setAttribute("class", "computer-action");
-            act1.setAttribute("name", "paper");
-            document.body.appendChild(act1);
-            const act2 = document.getElementById("computerAction");
-            const parentDiv = act2.parentNode;
-            parentDiv.replaceChild(act1, act2);
+            act3.setAttribute("name", "paper");
+            act3.setAttribute("src", "../img/paper.png");
         }
+        document.body.appendChild(act3);
+        const act4 = document.getElementById("computerAction");
+        const parentDiv2 = act4.parentNode;
+        parentDiv2.replaceChild(act3, act4);
 
 
         const playerChoice = document.getElementById("playerAction").getAttribute("name");
